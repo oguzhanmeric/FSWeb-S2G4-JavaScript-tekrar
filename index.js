@@ -15,7 +15,7 @@ var sayilar = [45,856,12.5,63,0.02,154,2,54,78,61.7,654,26,12.5,63,969,152,32,31
 //Örneğin çözümü:
 function KareninAlani(kenaruzunlugu){
 	return kenaruzunlugu*kenaruzunlugu;
-}
+} console.log("ornek - karenin alanı : ", KareninAlani(10));
 
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -29,10 +29,10 @@ function KareninAlani(kenaruzunlugu){
 			4. Hesaplanan çemberin çevresi döndürülecektir.
 		*/
 
-function CemberinCevresi(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinCevresi(yaricap){
+	return yaricap * 2 * pi
 }
-
+console.log("görev 1 - cemberin cevresi : ", CemberinCevresi(5));
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -47,9 +47,10 @@ function CemberinCevresi(/* kodlar buraya */){
 			4. Hesaplanan çemberin alanı döndürülecektir.
 		*/
 		
-function CemberinAlani(/* kodlar buraya */){
+function CemberinAlani(yaricap,piSayisi){
+	return Math.pow(yaricap,2) * piSayisi
 	/* kodlar buraya */
-}
+} console.log("Gorev 2 - Cemberin Alani : ",(CemberinAlani(15,pi)));
 
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -77,35 +78,68 @@ function CemberinAlani(/* kodlar buraya */){
 	
 	//3a çözümü
 
-	/* kodlar buraya */
+	enbuyuk = sayilar[0];
+	enkucuk = sayilar[0];
+	for(let i = 0; i <sayilar.length; i++) {
+		if(sayilar[i] > enbuyuk){
+			enbuyuk = sayilar[i];
+		} else if(sayilar[i] < enkucuk){
+			enkucuk = sayilar[i];
+		}
+	}console.log(`Görev 3a - en kücük sayi : ${enkucuk} - en büyük sayi : ${enbuyuk}`);
 	
 	
 	
 	// 3b çözümü:
-
-	/* kodlar buraya */
-		
-		
+	ucetambolunenler = []; 
+	let eklenecek = sayilar.forEach(bolum => {
+		if (bolum % 3 === 0 ){
+			return ucetambolunenler.push(bolum);
+		}
+	}); 
+	
+	console.log(`gorev 3 - üçe tam bölünenler : ${ucetambolunenler}`);
+	
+	
 		
 	//3c çözümü:
-	
+	ucebolunenlerintoplami = ucetambolunenler.reduce((sayi1,sayi2) => (sayi1 + sayi2),0);
+		console.log("görev 3c - Üçe bölünenlerin Toplamı: ", ucebolunenlerintoplami);
 	/* kodlar buraya */
 
 	
 	
 	//3d çözümü
 	
+	besyuzdenkucuksayilar = sayilar.filter(arr => arr < 500);
+	console.log("gorev 3d - 500den kucuk sayilar : ", besyuzdenkucuksayilar);
 	/* kodlar buraya */
 
 
 
 	//3e çözümü
 
-	/* kodlar buraya */
+	siralisayilar = besyuzdenkucuksayilar.sort((a,b) => a - b );
 	
 	
 	//3f çözümü
+
+	tekraredensayilar =  [];
+for(let i = 0;i<sayilar.length;i++){
+	let tekrarSayisi = 0;
 	
+	for(let j = 0;j<sayilar.length;j++){
+		
+		if(sayilar[i] === sayilar[j]){
+			tekrarSayisi++
+			
+			if(tekrarSayisi>1){
+			tekraredensayilar.push(`${sayilar[i]} sayısı ${tekrarSayisi} kere tekrar edilmiştir`);
+		}
+		}
+	}
+}
+console.log(tekraredensayilar);
 	/* kodlar buraya */
 
 
